@@ -1,0 +1,16 @@
+version: "2"
+services:
+  quote:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+    links:
+      - redis
+  redis:
+    image: hecklerm/redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - /Users/markheckler/dev/docker/data/redis:/data
